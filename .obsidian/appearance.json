@@ -1,0 +1,8 @@
+{
+  "enabledCssSnippets": [
+    "heatmap-fix",
+    "obsidian-checkbox",
+    "table-wrap"
+  ],
+  "baseFontSizeAction": true
+}

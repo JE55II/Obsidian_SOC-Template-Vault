@@ -1,0 +1,20 @@
+{
+  "entries": [],
+  "settings": {
+    "toggl": {
+      "email": "",
+      "includeProjectClient": false
+    },
+    "clockify": {
+      "email": "",
+      "includeProject": false,
+      "includeClient": false
+    },
+    "logViewLocation": "sidebar",
+    "exportsFolder": "task-tracker-exports",
+    "taskIdFormat": "reduced"
+  },
+  "projects": [],
+  "taskProjects": {},
+  "formatVersion": 1
+}

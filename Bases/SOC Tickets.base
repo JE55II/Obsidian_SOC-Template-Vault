@@ -1,0 +1,21 @@
+views:
+  - type: table
+    name: View
+    filters:
+      and:
+        - file.inFolder("♻️ DailyNotes/Soc Operation/SocTickets")
+    order:
+      - file.name
+      - date
+      - type
+      - month
+      - client
+      - provider
+      - tags
+    sort:
+      - property: date
+        direction: DESC
+      - property: client
+        direction: DESC
+      - property: file.mtime
+        direction: DESC

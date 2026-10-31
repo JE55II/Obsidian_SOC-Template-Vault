@@ -1,0 +1,21 @@
+/* 
+   Cribbed from the excellent ITS Theme
+   https://github.com/SlRvb/Obsidian--ITS-Theme 
+*/
+---
+/*
+.cm-s-obsidian .HyperMD-table-row.HyperMD-table-row.HyperMD-table-row {
+	white-space: pre-wrap;
+	min-width: min-content;
+}
+*/
+---
+.markdown-preview-view br {
+    content: '';
+    display: block;
+    margin-top: 10px;
+}
+
+.CodeMirror pre.CodeMirror-line {
+  padding-bottom: 10px;
+}

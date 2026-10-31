@@ -1,103 +1,118 @@
 # SOC Template Vault for Obsidian
 
-A ready-to-use [Obsidian](https://obsidian.md) vault for SOC analysts. Press one shortcut, answer three questions, and get a ticket note that is **named, filled in, tagged, filed in the right folder and timed**. Night-duty (on-call) notes and client meeting notes work the same way. A dashboard turns your tickets into year heatmaps, and three Bases list everything.
+A ready-to-use [Obsidian](https://obsidian.md) vault for SOC analysts. Press one shortcut, answer three questions, and you get a ticket note that is **named, filled in, tagged, filed in the right folder, and timed**. Meetings and night-duty (on-call) notes work the same way. A dashboard shows your ticket activity as year heatmaps, and three ready-made tables list every ticket and meeting.
 
-No coding needed to use it. Every template is plain text, with its settings at the top of the file.
+No coding needed to use it. If you want to adapt it, every template is plain text and the settings sit at the top of each file.
 
-![Dashboard with the vault graph and the SOC and on-call heatmaps](images/dashboard.png)
+| You want to… | Read |
+|---|---|
+| Install it and get the first note working | [Quick start](#quick-start) below, then [Docs/Setup.md](Docs/Setup.md) |
+| Learn the daily routine (tickets, on-call, meetings, dashboard) | [Docs/Using-the-vault.md](Docs/Using-the-vault.md) |
+| Understand or change how it works | [Docs/How-it-works.md](Docs/How-it-works.md) |
+| Fix a problem | [Docs/Troubleshooting.md](Docs/Troubleshooting.md) |
 
-## Features
+---
 
-- **3 templates** (Templater): SOC ticket, night-shift (on-call) ticket, client meeting.
-- **Auto-filing and tagging**: notes land in dated folders (`year / month / day`) with a ticket ID, customer and category tags, and a typed `date` property.
-- **Time tracking**: the timer starts when the note is created and stops when you tick the task (Task Time Tracker, one project per customer).
-- **Customer matching**: `Acme Corp`, `acme_corp` and `ACME-corp` resolve to the same customer, with suggestions for near matches.
-- **Dashboard**: vault graph plus SOC and on-call heatmaps that count tickets by the ID prefix you set in the templates.
-- **3 Bases**: SOC tickets, on-call tickets, meetings (File name, Date, Type, Month, Client, Provider, Tags).
-- **21 community plugins pre-installed and configured**; nothing to download from the plugin store.
+## What you get
 
-## See it in action
+- **3 templates** that automate note creation: SOC ticket, night-shift (on-call) ticket, client meeting.
+- **Automatic time tracking**: the timer starts when the note is created and stops when you tick the task.
+- **Customer name matching**: `customer_name`, `Customer Name` and `Customer-Name` are treated as one customer.
+- **A dashboard** with a vault graph and two heatmaps (SOC tickets, on-call tickets).
+- **3 Bases** (database-style tables): SOC tickets, on-call tickets, meetings.
+- **Daily notes**, a task roadmap note and a list of common SOC web tools.
+- **21 community plugins already installed and configured**. Nothing to download from the plugin store.
 
-**New SOC ticket**: `Ctrl/Cmd + S`, pick the template, answer the pop-ups, get the finished note.
-
-![New SOC ticket](images/new-ticket.gif)
-
-**New night-duty (on-call) ticket**
-
-![New on-call ticket](images/new-on-call.gif)
-
-**New client meeting**: type, provider, participants.
-
-![New meeting](images/new-meeting.gif)
+---
 
 ## Quick start
 
-Requires [Obsidian](https://obsidian.md/download) 1.13 or newer (Windows, macOS, Linux).
+> New to Obsidian? Obsidian is a free note-taking app that stores plain Markdown files in a normal folder. That folder is called a **vault**. This repository *is* a vault.
 
-1. **Download** this repository (**Code → Download ZIP**) and unzip it somewhere permanent.
-2. In Obsidian choose **Open folder as vault** and select the folder. When asked, click **Trust author and enable plugins**. The Dashboard and the vault's own README (the full user manual) open on first launch.
-3. **Set your ticket prefix** once. In `Obsidian-Templates/templates/`, open `- DailySOC tickets` and `- Night-shift-Duty` and change the line at the top:
+1. **Install Obsidian** from <https://obsidian.md/download> (Windows, macOS, Linux).
+2. **Get this vault.** Click **Code → Download ZIP** on the repository page and unzip it somewhere permanent (for example `Documents/SOC-Vault`). Or use `git clone`.
+3. **Open it.** Start Obsidian → **Open folder as vault** → choose the unzipped folder.
+4. **Trust it.** Obsidian asks *"Do you trust the author of this vault?"* → click **Trust author and enable plugins**. Without this, the templates and the dashboard do not work. On this first launch the **dashboard** opens (left tab) next to this **README**. Afterwards Obsidian reopens whatever you had open last.
+5. **Set your ticket prefix** (once). Open `Obsidian-Templates/templates/- DailySOC tickets.md`, and at the very top change:
    ```js
-   const TICKET_PREFIX = "placeholder-ticket-id"   // e.g. "INC"
+   const TICKET_PREFIX = "placeholder-ticket-id"   // for example "INC"
    ```
-4. *(Optional)* In `- meeting`, replace the `REPLACEME-…` meeting types, providers and participants.
-5. Press **`Ctrl + S`** (**`Cmd + S`** on macOS), pick a template, answer the pop-ups.
+   Do the same in `- Night-shift-Duty.md`. Details: [Docs/Setup.md](Docs/Setup.md#2-set-your-ticket-prefix).
+6. **Make your first ticket.** Press **`Ctrl + S`** (**`Cmd + S`** on Mac), pick `- DailySOC tickets`, and answer the pop-ups. A note named `INC-1234` (or whatever you typed) appears in `♻️ DailyNotes/Soc Operation/SocTickets/…`.
 
-A ticket then looks like this (prefix `INC`):
+That is all you need to start. Everything else is optional.
 
-```markdown
----
-date: 2026-10-31T09:42:00
-client: "Acme Corp"
-Alert name: "Impossible travel detected"
-tags:
-  - "INC-1234"
-  - "acme_corp"
-  - "soc_operation"
 ---
 
-- [ ] ⏱️ INC-1234 - Impossible travel detected - Acme Corp [tt-id:: AbC123xy]
-```
+## The daily routine in 30 seconds
 
-followed by an investigation form and a draft customer reply.
-
-## What is inside
-
-```
-Obsidian-Templates/templates/   the 3 working templates   <- edit these
-Obsidian-Templates/ClientFolderTemplate/   folder set to copy for a new client
-♻️ DailyNotes/                  daily notes; SOC tickets are filed under Soc Operation/SocTickets
-🔎⏰On-Call/                     night-duty notes
-🏢 Clients/📊 Monthly Meetings/  meeting notes
-Bases/                          ticket, on-call and meeting tables
-Docs/                           full documentation
-.obsidian/                      settings and the bundled plugins
-```
-
-Ticket, on-call and meeting folders are created the first time a template needs them.
-
-## Documentation
-
-| | |
+| I want to… | Do this |
 |---|---|
-| [Setup](../Docs/Setup.md) | Step-by-step install, ticket prefix, meeting lists, first-run check, settings, glossary |
-| [Using the vault](../Docs/Using-the-vault.md) | Daily workflows with examples, time tracking, dashboard, Bases |
-| [How it works](../Docs/How-it-works.md) | Template pipeline, data model, matching and heatmap logic, what to change together |
-| [Troubleshooting](../Docs/Troubleshooting.md) | Symptom, cause, fix |
+| Open today's daily note | Click the **calendar icon** in the left bar |
+| Create a SOC ticket note | **`Ctrl/Cmd + S`** → `- DailySOC tickets` |
+| Create a night-duty note | **`Ctrl/Cmd + S`** → `- Night-shift-Duty` |
+| Create a client meeting note | **`Ctrl/Cmd + S`** → `- meeting` |
+| Stop the timer | Tick the checkbox on the `⏱️` line at the top of the note |
+| See my activity | Click the **dashboard icon** in the left bar |
+| List all tickets or meetings | Open a file in the `Bases/` folder |
+| Search notes | **`Ctrl/Cmd + Shift + F`**. For a smarter search that also reads images and PDFs, run the command *Omnisearch: Vault search* (`Ctrl/Cmd + P`) |
 
-## Notes
+> `Ctrl/Cmd + S` normally means *Save*. Obsidian saves automatically, so this vault reuses the shortcut for "new note from template". You can change it in **Settings → Hotkeys**.
 
-- **Full user manual.** The vault's own [`README.md`](../README.md) opens inside Obsidian on first launch; this page is the GitHub overview.
-- **Templates are code.** Templater runs JavaScript with full access to your vault; read any template before running one you did not write.
-- **The dashboard is a modified build** of [stef4678/aurora-dashboard](https://github.com/stef4678/aurora-dashboard), bundled as *Aurora Dashboard (SOC)* (source: [JE55II/custom_aurora-dashboard](https://github.com/JE55II/custom_aurora-dashboard)). It has its own plugin ID so the plugin store cannot overwrite it. Do not replace it with the original.
-- **No account needed.** Obsidian Sync and Publish are off.
+Full walkthrough with examples: [Docs/Using-the-vault.md](Docs/Using-the-vault.md).
 
-## License
+---
 
-The original content of this repository (templates, documentation, Bases, configuration) is dedicated to the public domain under [CC0 1.0 Universal](../LICENSE). Use, copy, modify and redistribute it freely, with no attribution required.
+## What is in the vault
 
-The bundled Obsidian plugins and CSS snippets are **not** covered by CC0. They keep their own licences (MIT, GPL-3.0, AGPL-3.0, MPL-2.0, Apache-2.0), listed with their sources in [THIRD-PARTY-NOTICES.md](../THIRD-PARTY-NOTICES.md).
+```
+♻️ DailyNotes/                    daily notes, plus everything filed under it
+  Daily Usage/                    roadmap tracker note, SOC tools link list
+  Soc Operation/SocTickets/       SOC ticket notes, by year / month / day
+🔎⏰On-Call/                       night-duty notes, by year / month
+🏢 Clients/📊 Monthly Meetings/   meeting notes, by year / month
+Bases/                            3 ready-made tables (tickets, on-call, meetings)
+Obsidian-Templates/
+  templates/                      the 3 working templates  <- edit these
+  ClientFolderTemplate/           empty folder set to copy for a new client
+Docs/                             this documentation
+.obsidian/                        Obsidian settings, plugins, styling (hidden folder)
+```
 
-## Author
+Folders for tickets, on-call notes and meetings are created automatically the first time a template needs them, so some are empty in a fresh vault.
 
-Notes and research by the author: [Koffei](https://publish.obsidian.md/koffei/%F0%9F%93%A1Koffei/README) · [Daily CyberNews](https://publish.obsidian.md/koffei/%F0%9F%93%A1Koffei/Daily+CyberNews/%F0%9F%93%86+Daily+CyberNews+Index) · [Threat Actors](https://publish.obsidian.md/koffei/%F0%9F%93%A1Koffei/Articles/Threat-Actor+Mapping/%F0%9F%8E%AD+Threat+Actors+Index) · [CVE Report](https://publish.obsidian.md/koffei/%F0%9F%93%A1Koffei/Articles/CVE-Report/README) · [Report Samples](https://publish.obsidian.md/koffei/%F0%9F%93%A1Koffei/Report+Samples/Report+Samples) · [ThreatActor Map](https://je55ii.github.io/koffei-threat-map/)
+---
+
+## Good to know
+
+- **It only changes what you tell it to.** Templates run when you start them; nothing rewrites existing notes.
+- **Everything is local.** Your notes are plain files on your disk, and none of the bundled plugins needs an account.
+- **No account needed.** Obsidian Sync and Publish (paid Obsidian services) are switched off. Turn Sync on in **Settings → Core plugins** only if you subscribe to it.
+- **Licence.** The original content (templates, docs, Bases, settings) is CC0 / public domain: see `LICENSE`. The bundled plugins keep their own licences: see `THIRD-PARTY-NOTICES.md`.
+- **The dashboard is a modified build** of the open-source *Aurora Dashboard* plugin, bundled in the vault under its own name, *Aurora Dashboard (SOC)*. Do not replace it with the original from the plugin store. Source: <https://github.com/JE55II/custom_aurora-dashboard>.
+- **Obsidian's interface language** can be changed in **Settings → General → Language**. The notes and templates are in English.
+
+---
+
+## Side-note
+
+This vault comes from day-to-day SOC work. The author also publishes personal notes and research online. They are **not needed** to use the vault, but you may find them useful:
+
+- [Koffei: README](https://publish.obsidian.md/koffei/%F0%9F%93%A1Koffei/README): the entry page
+- [Daily CyberNews: Index](https://publish.obsidian.md/koffei/%F0%9F%93%A1Koffei/Daily+CyberNews/%F0%9F%93%86+Daily+CyberNews+Index)
+- [Threat Actors: Index](https://publish.obsidian.md/koffei/%F0%9F%93%A1Koffei/Articles/Threat-Actor+Mapping/%F0%9F%8E%AD+Threat+Actors+Index) (Threat Actor Mapping)
+- [CVE Report: README](https://publish.obsidian.md/koffei/%F0%9F%93%A1Koffei/Articles/CVE-Report/README)
+- [Report Samples](https://publish.obsidian.md/koffei/%F0%9F%93%A1Koffei/Report+Samples/Report+Samples)
+- [ThreatActor Map](https://je55ii.github.io/koffei-threat-map/)
+
+---
+
+## Troubleshooting (the three most common)
+
+| Symptom | Fix |
+|---|---|
+| Nothing happens when I press `Ctrl/Cmd + S` | Community plugins are off. **Settings → Community plugins → Turn on community plugins**. |
+| The note contains raw code like `<%* … %>` | You used Obsidian's built-in *Templates* command. Use **Templater** (`Ctrl/Cmd + S`). |
+| Ticket notes are named `placeholder-ticket-id-…` | You have not set your ticket prefix yet. See step 5 above. |
+
+More: [Docs/Troubleshooting.md](Docs/Troubleshooting.md).

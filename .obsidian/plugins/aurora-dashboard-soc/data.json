@@ -1,0 +1,108 @@
+{
+  "version": 3,
+  "columns": 12,
+  "rowHeight": 88,
+  "gap": 14,
+  "accent": "",
+  "editMode": false,
+  "trackActivity": true,
+  "dailyNoteFolder": "♻️ DailyNotes",
+  "dailyNoteFormat": "YYYY MMMM DD",
+  "captureTarget": "daily",
+  "captureFolder": "",
+  "inboxFile": "Inbox.md",
+  "pomodoroFocus": 25,
+  "pomodoroBreak": 5,
+  "layout": [
+    {
+      "type": "stats",
+      "uid": "gbe4bbomvvmn98e",
+      "x": 0,
+      "y": 0,
+      "w": 4,
+      "h": 2,
+      "settings": {}
+    },
+    {
+      "type": "search",
+      "uid": "zy74vk4mvvmnjr5",
+      "x": 4,
+      "y": 0,
+      "w": 5,
+      "h": 2,
+      "settings": {}
+    },
+    {
+      "type": "progress",
+      "uid": "39qdmlkmvvmntjv",
+      "x": 9,
+      "y": 0,
+      "w": 3,
+      "h": 2,
+      "settings": {}
+    },
+    {
+      "type": "pomodoro",
+      "uid": "kw7jm56mvvmppj4",
+      "x": 4,
+      "y": 4,
+      "w": 2,
+      "h": 2,
+      "settings": {
+        "focus": 25,
+        "break": 5
+      }
+    },
+    {
+      "type": "streak",
+      "uid": "uvo8lx4mvvmq5fg",
+      "x": 4,
+      "y": 2,
+      "w": 2,
+      "h": 2,
+      "settings": {}
+    },
+    {
+      "type": "graph",
+      "uid": "nappzftomlwmzjd",
+      "x": 0,
+      "y": 2,
+      "w": 4,
+      "h": 4,
+      "settings": {
+        "orphans": true,
+        "folder": "",
+        "colorFolders": true,
+        "names": "Hubs",
+        "groups": [],
+        "showOther": true
+      }
+    },
+    {
+      "type": "noteheatmap",
+      "uid": "c9lxyps25eyab27",
+      "x": 6,
+      "y": 2,
+      "w": 6,
+      "h": 2,
+      "settings": {
+        "source": "SOC Operations"
+      },
+      "title": "Daily SOC"
+    },
+    {
+      "type": "noteheatmap",
+      "uid": "ea42tsz91njltwm",
+      "x": 6,
+      "y": 4,
+      "w": 6,
+      "h": 2,
+      "settings": {
+        "source": "On-Call"
+      },
+      "title": "Night Duty"
+    }
+  ],
+  "orphans": [],
+  "activity": {}
+}
